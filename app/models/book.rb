@@ -13,7 +13,7 @@ class Book < ActiveRecord::Base
     }
   end
 
-  def self.generate_csv(book_list)
+  def self.generate_csv(book_list)  #this is class because it
     header = ['id', 'title', 'author', 'already_read']
 
     CSV.generate(headers: true) do |csv|
