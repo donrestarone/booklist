@@ -4,6 +4,15 @@ require 'csv'
 
 class Book < ActiveRecord::Base
   # This method is used to create a CSV representation of the data in the database
+
+  def to_json
+    {
+      title: self.title,
+      author: self.author,
+      read_status: self.already_read
+    }
+  end
+
   def self.generate_csv(book_list)
     header = ['id', 'title', 'author', 'already_read']
 
